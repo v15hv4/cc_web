@@ -3,4 +3,5 @@ __pycache__/
 *.pyc
 .vscode/
 backend/db.sqlite3
+backend/media/
 db.sqlite3
