@@ -4,3 +4,4 @@ __pycache__/
 .vscode/
 backend/media/
 backend/backend/.env
+frontend/.env
