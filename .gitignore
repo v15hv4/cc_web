@@ -5,3 +5,5 @@ __pycache__/
 backend/media/
 backend/backend/.env
 frontend/.env
+frontend/.env.prod
+frontend/.env.dbg
