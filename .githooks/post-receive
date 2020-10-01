@@ -1,0 +1,28 @@
+#!/bin/bash
+TARGET="/var/www/html/web"
+GIT_DIR="/home/clubs/web.git"
+BRANCH="master"
+
+while read oldrev newrev ref
+do
+	if [ "$ref" = "refs/heads/$BRANCH" ];
+	then
+		echo "Ref $ref received. Deploying ${BRANCH} branch to production..."
+		sudo git --work-tree=$TARGET --git-dir=$GIT_DIR checkout -f $BRANCH
+		echo "Managing Django migrations..."
+		$TARGET/backend/venv/bin/python $TARGET/backend/manage.py makemigrations
+		$TARGET/backend/venv/bin/python $TARGET/backend/manage.py migrate
+		echo "Done."
+		echo "Building React app..."
+		sudo npm install --prefix $TARGET/frontend 
+		sudo npm run build --prefix $TARGET/frontend
+		echo "Done."
+		echo "Restarting servers..."
+		sudo systemctl restart web_backend
+		sudo systemctl restart nginx
+		echo "Done."
+		echo "Successfully deployed!"
+	else
+		echo "Ref $ref received. Doing nothing: only the ${BRANCH} branch may be deployed on this server."
+	fi
+done
