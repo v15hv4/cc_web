@@ -1,4 +1,5 @@
 .env/
+.tmuxrc
 __pycache__/
 *.pyc
 .vscode/
