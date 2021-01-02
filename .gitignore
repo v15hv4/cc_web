@@ -1,5 +1,6 @@
 .env/
 .tmuxrc
+.eslintcache
 __pycache__/
 *.pyc
 .vscode/
