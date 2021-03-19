@@ -10,7 +10,7 @@ django-cors-headers==3.3.0
 django-environ==0.4.5
 django-jsonfield==1.4.0
 django-multiselectfield==0.1.12
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 isort==4.3.21
 jedi==0.17.0
 lazy-object-proxy==1.4.3
