@@ -6,6 +6,9 @@ __pycache__/
 .vscode/
 backend/media/
 backend/backend/.env
+backend/.in
+backend/.out
+backend/.venv
 frontend/.env
 frontend/.env.prod
 frontend/.env.dbg
